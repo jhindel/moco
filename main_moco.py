@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
 import argparse
+import sys
 import builtins
 import math
 import os
@@ -98,8 +99,8 @@ parser.add_argument('--cos', action='store_true',
                     help='use cosine lr schedule')
 
 
-def main():
-    args = parser.parse_args()
+def main(args):
+    args = parser.parse_args(args)
 
     if args.seed is not None:
         random.seed(args.seed)
@@ -399,4 +400,4 @@ def accuracy(output, target, topk=(1,)):
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])
