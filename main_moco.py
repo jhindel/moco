@@ -246,6 +246,7 @@ def main_worker(gpu, ngpus_per_node, args):
             normalize
         ]
 
+    # overwrite default_loader if I want to load rgb and nir image here, uses PIL with RGB
     train_dataset = datasets.ImageFolder(
         traindir,
         moco.loader.TwoCropsTransform(transforms.Compose(augmentation)))
